@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Housing Inventory: Status Form{% endblock %}
+
+{% block content %}
+{% if form.errors %}
+
+<div class="ErrorBox">
+	Please correct the following error{{ form.errors|pluralize }}.
+	<br /><br />
+	&nbsp&nbsp&nbsp
+	{% if form.status.errors %}<b>A Status is required.</b><br />{% endif %}
+	&nbsp&nbsp&nbsp
+	{% if form.description.errors %}<b>A Description of the Status is required.</b><br />{% endif %}
+</div>
+{% endif %}
+
+<form action="" method="post">
+	<div class='formEntry'>
+		<label for="id_status">Status:</label>
+		{{ form.status }}
+	</div>
+	<div class='formEntry'>
+		<label for="id_description">Description:</label><br />
+		{{ form.description }}
+	</div>
+	<input type="submit" value="Submit">
+</form>
+{% endblock %}
+

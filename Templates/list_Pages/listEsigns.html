@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+{% block title %}Esign List{% endblock %}
+
+{% block content %}
+<h2 id="header">Inventory Esign</h2>
+<a href='/Esign/add/new/'>Add</a>
+<ul id="list">
+{% for item in esigns %}
+<li><div>
+<b><a href="/list/Esign/{{ item.id }}/">#{{ item.esign_number }}</a></b>: {{ item.esign_type }}
+</div></li>
+{% endfor %}
+</ul>
+{% endblock %}

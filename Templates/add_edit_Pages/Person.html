@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Housing Inventory: Person Form{% endblock %}
+
+{% block content %}
+{% if form.errors %}
+
+<div class="ErrorBox">
+	Please correct the following error{{ form.errors|pluralize }}.
+	<br /><br />
+	&nbsp&nbsp&nbsp
+	{% if form.first_name.errors %}<b>A First Name is required.</b><br />{% endif %}
+	&nbsp&nbsp&nbsp
+	{% if form.last_name.errors %}<b>A Last name is required.</b><br />{% endif %}
+	&nbsp&nbsp&nbsp
+	{% if form.job_info.errors %}<b>A Job Selection is required.</b><br />{% endif %}
+</div>
+{% endif %}
+
+<form action="" method="post">
+	<div class='formEntry'>
+		<label for="id_first_name">First Name:</label>
+		{{ form.first_name }}
+	</div>
+	<div class='formEntry'>
+		<label for="id_last_name">Last Name:</label>
+		{{ form.last_name }}
+	</div>
+	<div class='formEntry'>
+		<label form="id_job_info">Job:</label>
+		{{ form.job_info }}
+	</div>
+	<input type="submit" value="Submit">
+</form>
+{% endblock %}

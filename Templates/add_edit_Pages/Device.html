@@ -1,0 +1,81 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Housing Inventory: Device Form{% endblock %}
+
+{% block content %}
+{% if form.errors %}
+
+<div class="ErrorBox">
+	Please correct the following error{{ form.errors|pluralize }}.
+	<br /><br />
+	{% for error in form.errors %}
+	{{ error }}
+	{% endfor %}
+	&nbsp&nbsp&nbsp
+	{% if form.description.errors %}<b>Choose a description.</b><br />{% endif %}
+</div>
+{% endif %}
+
+<form action="" method="post">
+	<div class='formEntry'>
+		<label for="id_hostname">Hostname:</label>
+		{{ form.hostname }}
+	</div>
+	<div class='formEntry'>
+		<label for="id_serial">Serial Number:</label>
+		{{ form.serial }}
+	</div>
+	<div class='formEntry'>
+		<label for="id_state_id">State ID:</label>
+		{{ form.state_id }}
+	</div>
+	<div class='formEntry'>
+		<label for="id_memory">Memory:</label>
+		{{ form.memory }}
+	</div>
+		<div class='formEntry'>
+		<label for="id_hostname">Ram:</label>
+		{{ form.ram }}
+	</div>
+	<div class='formEntry'>
+		{{ form.dualscreen }}<label for="id_serial">Dual Screen?</label>
+		
+	</div>
+	<div class='formEntry'>
+		<label for="id_state_id">Brand:</label>
+		{{ form.brand }}
+	</div>
+	<div class='formEntry'>
+		<label for="id_Model">Model:</label>
+		{{ form.model }}
+	</div>
+		<div class='formEntry'>
+		<label for="id_proc">Processor:</label>
+		{{ form.proc }}
+	</div>
+	<div class='formEntry'>
+		{{ form.x64 }} <label for="id_serial">x64?</label>
+	</div>
+	<div class='formEntry'>
+		<label for="id_purchase_id">Purchase ID:</label>
+		{{ form.purchase_ID }}
+	</div>
+	<div class='formEntry'>
+		<label for="id_location_id">Location:</label>
+		{{ form.Location_ID }}
+	</div>
+	<div class='formEntry'>
+		<label for="id_Person_ID">Person:</label>
+		{{ form.Person_ID }}
+	</div>
+		<div class='formEntry'>
+		<label for="id_Status_ID">Status:</label>
+		{{ form.Status_ID }}
+	</div>
+
+	<input type="submit" value="Submit">
+</form>
+{% endblock %}
+
+
+

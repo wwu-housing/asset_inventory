@@ -1,0 +1,65 @@
+<HTML>
+<HEAD>
+<style type="text/css">
+div{
+	padding: .5in;
+}
+table{
+	margin: 0px;
+	text-align: center;
+}
+td{
+	border: 1px solid #000000;
+	padding: 5px;
+	margin: 0px;
+}
+</style>
+</HEAD>
+
+<BODY>
+<H1>Housing Inventory Control List</H1>
+<H2>There are {{ count }} items in inventory.</H2>
+<p>--------------------------------------------------------------</p>
+<div>
+<table>
+	<tr>
+		<td></td>
+		<td>Building</td>
+		<td>Room</td>
+		<td>Station</td>
+		<td>Status</td>
+		<td>Person</td>
+		<td>Last Device Update</td>
+
+	</tr>
+	{% for items in device %}
+	<tr>
+		<td>____</td>
+		<td>{{ items.Location_ID.get_building_name }}</td>
+		<td>{{ items.Location_ID.room }}</td>
+		<td>
+			{% if items.Location_ID.location_type == "C" %}
+			{{ items.Location_ID.station_location }}
+			{% else %}
+			{{ items.Location_ID.get_location_type }}
+			{% endif %}
+		
+		</td>
+		<td>{{ items.Status_ID.status }}</td>
+		<td>{{ items.Person_ID }}</td>
+		<td>{{ items.last_update }}</td>
+	</tr>
+	<tr>
+		<td>Changes:</td>
+		<td> &nbsp&nbsp </td>
+		<td> &nbsp&nbsp </td>
+		<td> &nbsp&nbsp </td>
+		<td> &nbsp&nbsp </td>
+		<td> &nbsp&nbsp </td>
+		<td> &nbsp&nbsp </td>
+	</tr>
+	{% endfor %}
+</table>
+</div>
+</BODY>
+</HTML>

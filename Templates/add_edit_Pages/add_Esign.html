@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Housing Inventory: Add Device to Esign{% endblock %}
+
+{% block content %}
+{% if form.errors %}
+
+<div class="ErrorBox">
+	Please correct the following error{{ form.errors|pluralize }}.
+	<br /><br />
+	&nbsp&nbsp&nbsp
+	{% if form.sys_ID.errors %}<b>A Device Selection is Required.</b><br />{% endif %}
+
+</div>
+{% endif %}
+
+{{ esign.esign_type }}: #{{ esign.esign_number }}
+
+<form action="" method="post">
+	<div class='formEntry'>
+		<label for="id_device_ID">Device:</label>
+		{{ form.sys_ID }}
+	</div>
+	<input type="submit" value="Submit">
+</form>
+{% endblock %}

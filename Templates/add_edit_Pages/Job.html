@@ -1,0 +1,29 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Housing Inventory: Job Form{% endblock %}
+
+{% block content %}
+{% if form.errors %}
+
+<div class="ErrorBox">
+	Please correct the following error{{ form.errors|pluralize }}.
+	<br /><br />
+	&nbsp&nbsp&nbsp
+	{% if form.title.errors %}<b>A Title is required.</b><br />{% endif %}
+	&nbsp&nbsp&nbsp
+	{% if form.unit.errors %}<b>A Unit must be selected from the drop down list.</b><br />{% endif %}
+</div>
+{% endif %}
+
+<form action="" method="post">
+	<div class='formEntry'>
+		<label for="id_title">Title:</label>
+		{{ form.title }}
+	</div>
+	<div class='formEntry'>
+		<label for="id_unit">Unit:</label>
+		{{ form.unit }}
+	</div>
+	<input type="submit" value="Submit">
+</form>
+{% endblock %}

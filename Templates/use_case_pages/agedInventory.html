@@ -1,0 +1,21 @@
+{% extends 'base/base.html'%}
+
+{% block title %}Housing Inventory Aged Record of Items in Inventory {% endblock %}
+
+{% block content %}
+
+<div>
+	Items by Age in Inventory: <br /><br />
+	{% for items in device %}
+	<a href="list/Purchase/{{ items.purchase_ID.id }}/">{{ items.purchase_ID.purchase_date }}</a><br />
+	{{ items.brand }} &nbsp {{ items.model }}, Serial#:<a href="list/Device/{{ items.id }}/">{{ items.serial }}</a><br />
+        {{ items.Person_ID }} <br />	
+	{{ items.Location_ID.get_building_name }} &nbsp Room: {{ items.Location_ID.room }}
+		{% if items.Location_ID.location_type == "C" %}
+		{{ items.Location_ID.get_location_type }} Station#: {{ items.Location_ID.station_location }}
+		{% endif %}
+	<br /><br />
+	{% endfor %}
+</div>
+
+{% endblock %}

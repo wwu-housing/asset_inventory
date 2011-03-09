@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Housing Inventory: Esign Form{% endblock %}
+
+{% block content %}
+{% if form.errors %}
+
+<div class="ErrorBox">
+	Please correct the following error{{ form.errors|pluralize }}.
+	<br /><br />
+	&nbsp&nbsp&nbsp
+	{% if form.esign_type.errors %}<b>A Type of Esign is required.</b><br />{% endif %}
+	&nbsp&nbsp&nbsp
+	{% if form.esign_number.errors %}<b>An Esign Numbers is required.</b><br />{% endif %}
+	&nbsp&nbsp&nbsp
+	{% if form.esign_reason.errors %}<b>An reason for this Esign is required.</b><br />{% endif %}
+</div>
+{% endif %}
+
+<form action="" method="post">
+	<div class='formEntry'>
+		<label for="id_esign_type">Type:</label>
+		{{ form.esign_type }}
+	</div>
+	<div class='formEntry'>
+		<label for="id_esign_number">Number:</label>
+		{{ form.esign_number }}
+	</div>
+	<div class='formEntry'>
+		<label for="id_esign_reason">Reason:</label><br />
+		{{ form.esign_reason }}
+	</div>
+	<input type="submit" value="Submit">
+</form>
+{% endblock %}

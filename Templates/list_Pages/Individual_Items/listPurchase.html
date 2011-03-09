@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+
+{% block title %}{{ purchase }}{% endblock %}
+
+{% block content %}
+<h3>{{ purchase }}</h3>
+
+Purchase Date: {{ purchase.purchase_date }}
+<a href='/Purchase/edit/{{ purchase.id }}/'>Edit</a><br /><br />
+{{ purchase.subject }}<br />
+Purchase Information: {{ purchase.description }}<br /><br />
+
+<a href='/Purchase/edit/{{ purchase.id }}/'>Edit</a><br /><br />
+
+{% endblock %}

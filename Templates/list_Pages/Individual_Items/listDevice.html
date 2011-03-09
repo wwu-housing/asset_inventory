@@ -1,0 +1,34 @@
+{% extends 'base/base.html' %}
+
+
+{% block title %}{{ device }}{% endblock %}
+
+{% block content%}
+
+<h3>{{ device }}</h3>
+
+Last Updated: {{ device.last_update }}
+<a href='/Device/edit/{{ device.id }}/'>Edit</a><br /><br />
+<a href='/list/Person/'>{{ device.Person_ID }}</a><br />
+Location: 
+{{ device.Location_ID.get_building_name }} {{ device.Location_ID.get_location_type }} <br />
+{% if device.Location_ID.get_location_type == "Computer Lab" %}
+&nbsp&nbsp&nbsp Station #: {{ device.Location_ID.station_location }} <br />
+{% endif %}
+&nbsp&nbsp&nbsp Room #: {{ device.Location_ID.room }}<br />
+Host Name: {{ device.hostname }}<br />
+Serial Number: {{ device.serial }}<br />
+State ID: {{ device.state_id }}<br />
+Memory: {{ device.memory }}<br />
+RAM: {{ device.ram }}<br />
+Brand: {{ device.brand }}<br />
+Model: {{ device.model }}<br />
+Purchase Information: <a href="/list/Purchase/{{device.purchase_ID.id}}/"> {{ device.purchase_ID }}</a><br />
+Status: {{ device.Status_ID }}<br />
+Proc: {{ device.proc }}<br />
+Is x64? {{ device.x64 }}<br />
+Is Dual Screen? {{ device.dualscreen }}<br /><br />
+
+<a href='/Device/edit/{{ device.id }}/'>Edit</a><br /><br />
+
+{% endblock %}

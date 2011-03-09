@@ -1,0 +1,43 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Housing Inventory: Purchase Form{% endblock %}
+
+{% block content %}
+{% if form.errors %}
+
+<div class="ErrorBox">
+	Please correct the following error{{ form.errors|pluralize }}.
+	<br /><br />
+	&nbsp&nbsp&nbsp
+	{% if form.warranty.errors %}<b>Enter warantee terms.</b><br />{% endif %}
+	&nbsp&nbsp&nbsp
+	{% if form.purchase_date.errors %}<b>Choose a purchase date.</b><br />{% endif %}
+	&nbsp&nbsp&nbsp
+	{% if form.subject.errors %}<b>Choose a subject.</b><br />{% endif %}
+	&nbsp&nbsp&nbsp
+	{% if form.description.errors %}<b>Choose a description.</b><br />{% endif %}
+</div>
+{% endif %}
+
+<form action="" method="post">
+	<div class='formEntry'>
+		<label for="id_warranty">Warranty Terms:</label>
+		{{ form.warranty }}
+	</div>
+	<div class='formEntry'>
+		<label for="id_purchase_date">Purchase Date (YYYY-MM-DD):</label>
+		{{ form.purchase_date }}
+	</div>
+	<div class='formEntry'>
+		<label for="id_subject">Purchase Type:</label>
+		{{ form.subject }}
+	</div>
+	<div class='formEntry'>
+		<label for="id_description">Description of Purchase contents:</label><br />
+		{{ form.description }}
+	</div>
+	<input type="submit" value="Submit">
+</form>
+{% endblock %}
+
+
