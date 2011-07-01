@@ -1,0 +1,16 @@
+{% extends 'asset_inventory/base/base.html' %}
+
+{% block title %}Jobs List{% endblock %}
+
+{% block subcontent %}
+<h2 id='header'>Job Titles</h2>
+<a href={% url asset_inventory.views.add_edit_item 'Job' 'add' 'new' %}>Add</a>
+<ul id='list'>
+{% for item in jobs %}
+<li><div>
+<b>{{ item }}</b> &nbsp <a href={% url asset_inventory.views.add_edit_item 'Job' 'add' item.id %} />Edit</a>
+<br />
+</div></li>
+{% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'asset_inventory/base/base.html' %}
+
+{% block title %}Status List{% endblock %}
+
+{% block subcontent %}
+<h2>Inventory Device Status</h2>
+<a href={% url asset_inventory.views.add_edit_item 'Status' 'add' 'new' %}>Add</a><br /><br />
+{% for item in status %}
+<li><div>
+<b>{{ item.status }}</b>: {{ item.description }}
+&nbsp <a href={% url asset_inventory.views.add_edit_item 'Status' 'edit' item.id %}>Edit</a>
+<br /><br />
+</div></li>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'asset_inventory/base/base.html' %}
+{% block title %}{{ location }}{% endblock %}
+
+{% block subcontent %}
+
+<h3>{{ location }}</h3>
+
+<a href={% url asset_inventory.views.add_edit_item 'Location' 'edit' location.id %}>Edit</a><br /><br />
+{{ location.get_building_name }}<br />
+Room: {{ location.room }}, {{ location.get_location_type }}<br />
+Lock: {{ location.lock_type }}, {{ location.lock_combination }}<br /><br />
+
+<a href={% url asset_inventory.views.add_edit_item 'Location' 'edit' location.id %}>Edit</a><br /><br />
+
+{% endblock %}

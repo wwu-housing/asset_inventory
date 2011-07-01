@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <p><strong>
+        <a href={% url asset_inventory.views.list_model 'Device' %}>Items in Inventory</a> |
+        <a href={% url asset_inventory.views.list_model 'Esign' %}>Esign Forms</a> |
+        <a href={% url asset_inventory.views.list_model 'Status' %}>Items Status'</a> |
+        <a href={% url asset_inventory.views.list_model 'Purchase' %}>Purchases</a> |
+        <a href={% url asset_inventory.views.list_model 'Person' %}>Members</a> |
+        <a href={% url asset_inventory.views.list_model 'Location' %}>Locations</a> |
+        <a href={% url asset_inventory.views.list_model 'Job' %}>Positions</a>
+    </strong></p>
+    {% block subcontent %}{% endblock %}
+    <a href={% url asset_inventory.views.homepage %}><strong>Return to Main Page</strong></a>
+{% endblock %}

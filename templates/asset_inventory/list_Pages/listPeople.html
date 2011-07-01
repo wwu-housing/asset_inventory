@@ -1,14 +1,14 @@
-{% extends 'base/base.html' %}
+{% extends 'asset_inventory/base/base.html' %}
 {% block title %}Members List{% endblock %}
 
-{% block content %}
+{% block subcontent %}
 <h2 id='header'>People</h2>
-<a href='/Person/add/new'>Add</a>
+<a href={% url asset_inventory.views.add_edit_item 'Person' 'add' 'new' %}>Add</a>
 <ul id='list'>
 {% for item in people %}
 <li><div>
 <b>{{ item.name }}</b> &nbsp
-<a href="/Person/edit/{{ item.id }}/">Edit</a>
+<a href={% url asset_inventory.views.add_edit_item 'Person' 'edit' item.id %}>Edit</a>
 <br />
 &nbsp&nbsp {{ item.job_info }}<br /><br />
 </div></li>

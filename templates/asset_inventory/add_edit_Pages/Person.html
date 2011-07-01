@@ -1,8 +1,8 @@
-{% extends 'base/base.html' %}
+{% extends 'asset_inventory/base/base.html' %}
 
 {% block title %}Housing Inventory: Person Form{% endblock %}
 
-{% block content %}
+{% block subcontent %}
 {% if form.errors %}
 
 <div class="ErrorBox">
@@ -17,7 +17,7 @@
 </div>
 {% endif %}
 
-<form action="" method="post">
+<form action="" method="post">{% csrf_token %}
 	<div class='formEntry'>
 		<label for="id_first_name">First Name:</label>
 		{{ form.first_name }}

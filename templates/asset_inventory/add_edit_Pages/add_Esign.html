@@ -1,8 +1,8 @@
-{% extends 'base/base.html' %}
+{% extends 'asset_inventory/base/base.html' %}
 
 {% block title %}Housing Inventory: Add Device to Esign{% endblock %}
 
-{% block content %}
+{% block subcontent %}
 {% if form.errors %}
 
 <div class="ErrorBox">
@@ -16,7 +16,7 @@
 
 {{ esign.esign_type }}: #{{ esign.esign_number }}
 
-<form action="" method="post">
+<form action="" method="post">{% csrf_token %}
 	<div class='formEntry'>
 		<label for="id_device_ID">Device:</label>
 		{{ form.sys_ID }}

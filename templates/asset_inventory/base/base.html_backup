@@ -1,51 +1,51 @@
 <html>
 <head>
-	
+    
 <title>{% block title %}{%endblock%}</title>
 <!-- This style section will become a CSS sheet later -->
 <style type="text/css">
 div.ErrorBox{
-	color: #FFFFFF;
-	border: 1px solid #FF0000;
-	background-color: #DD4444;
-	padding: 10px;
-	width: 80%;
-	margin: 10px;
+    color: #FFFFFF;
+    border: 1px solid #FF0000;
+    background-color: #DD4444;
+    padding: 10px;
+    width: 80%;
+    margin: 10px;
 }
 hr.base{
-	color: #0097D7;
-	width: 80%;
-	height: 2px;
+    color: #0097D7;
+    width: 80%;
+    height: 2px;
 }
 h2.base{
-	text-align: center;
+    text-align: center;
 }
 div.base{
-	text-align: center;
-	width: 100%;
+    text-align: center;
+    width: 100%;
 }
 div.content_container{
-	background-color: #CCCCCC;
-	padding: 1%;
-	width: 78%;
-	margin-left: auto;
-	margin-right: auto;
+    background-color: #CCCCCC;
+    padding: 1%;
+    width: 78%;
+    margin-left: auto;
+    margin-right: auto;
 }
 #header{position:relative;line-height:1em;}
 .filterform 
 {
-	width:220px;
-	font-size:12px;
-	display:block;
+    width:220px;
+    font-size:12px;
+    display:block;
 }
 .filterform input 
 {
-	-moz-border-radius:5px;
-	border-radius:5px;
-	-webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    -webkit-border-radius:5px;
 }
 div.inventoryList{
-	text-align: center;
+    text-align: center;
 }
 
 </style>
@@ -100,17 +100,17 @@ div.inventoryList{
 <!-- Start Menu -->
 <H2 class="base">Housing Inventory Database Management System</H2>
 <div class="base">
-	|&nbsp&nbsp<a href="/list/Device/">Items in Inventory</a>
-	&nbsp&nbsp|&nbsp&nbsp<a href="/list/Esign/">Esign Forms</a>
-	&nbsp&nbsp|&nbsp&nbsp<a href="/list/Status/">Items Status'</a>
-	&nbsp&nbsp|&nbsp&nbsp<a href="/list/Purchase/">Purchases</a>
-	&nbsp&nbsp|<br />
-	|&nbsp&nbsp<a href="/list/Person/">Members</a>
-	&nbsp&nbsp|&nbsp&nbsp<a href="/list/Location/">Locations</a>
-	&nbsp&nbsp|&nbsp&nbsp<a href="/list/Job/">Positions</a>
-	&nbsp&nbsp|<br />
-	<br />
-	<a href="/">Return to Main Page</a>
+    |&nbsp&nbsp<a href={% url asset_inventory.views.list_model 'Device' %}>Items in Inventory</a>
+    &nbsp&nbsp|&nbsp&nbsp<a href={% url asset_inventory.views.list_model 'Esign' %}>Esign Forms</a>
+    &nbsp&nbsp|&nbsp&nbsp<a href={% url asset_inventory.views.list_model 'Status' %}>Items Status'</a>
+    &nbsp&nbsp|&nbsp&nbsp<a href={% url asset_inventory.views.list_model 'Purchase' %}>Purchases</a>
+    &nbsp&nbsp|<br />
+    |&nbsp&nbsp<a href={% url asset_inventory.views.list_model 'Person' %}>Members</a>
+    &nbsp&nbsp|&nbsp&nbsp<a href={% url asset_inventory.views.list_model 'Location' %}>Locations</a>
+    &nbsp&nbsp|&nbsp&nbsp<a href={% url asset_inventory.views.list_model 'Job' %}>Positions</a>
+    &nbsp&nbsp|<br />
+    <br />
+    <a href={% url asset_inventory.views.homepage %}>Return to Main Page</a>
 
 </div>
 <!-- End Menu -->

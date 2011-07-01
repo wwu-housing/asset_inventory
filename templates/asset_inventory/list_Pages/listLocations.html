@@ -1,0 +1,15 @@
+{% extends 'asset_inventory/base/base.html' %}
+
+{% block title %}Locations List{% endblock %}
+
+{% block subcontent%}
+<h2 id='header'>Inventory Locations</h2>
+<a href={% url asset_inventory.views.add_edit_item 'Location' 'add' 'new' %}>Add</a>
+<ul id='list'>
+{% for item in locations %}
+<li><div>
+<b><a href={% url asset_inventory.views.view_item 'Location' item.id %}>{{ item }}</a></b><br />
+</div></li>
+{% endfor %}
+</ul>
+{% endblock %}

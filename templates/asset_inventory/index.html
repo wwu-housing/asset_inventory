@@ -1,0 +1,10 @@
+{% extends 'asset_inventory/base/base.html'%}
+
+{% block title %}Housing Inventory Database Management System {% endblock %}
+
+{% block subcontent %}
+<p><strong>
+    <a href={% url asset_inventory.views.usecasepages 'inv' %}>Printable Inventory List</a> |
+    <a href={% url asset_inventory.views.usecasepages 'aged' %}>Oldest Items in Inventory</a>
+</strong></p>
+{% endblock %}

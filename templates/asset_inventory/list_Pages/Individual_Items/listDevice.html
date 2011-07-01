@@ -1,15 +1,14 @@
-{% extends 'base/base.html' %}
-
+{% extends 'asset_inventory/base/base.html' %}
 
 {% block title %}{{ device }}{% endblock %}
 
-{% block content%}
+{% block subcontent%}
 
 <h3>{{ device }}</h3>
 
 Last Updated: {{ device.last_update }}
-<a href='/Device/edit/{{ device.id }}/'>Edit</a><br /><br />
-<a href='/list/Person/'>{{ device.Person_ID }}</a><br />
+<a href={% url asset_inventory.views.add_edit_item 'Device' 'edit' device.id %}>Edit</a><br /><br />
+<a href={% url asset_inventory.views.list_model 'Person' %}>{{ device.Person_ID }}</a><br />
 Location: 
 {{ device.Location_ID.get_building_name }} {{ device.Location_ID.get_location_type }} <br />
 {% if device.Location_ID.get_location_type == "Computer Lab" %}
@@ -23,12 +22,11 @@ Memory: {{ device.memory }}<br />
 RAM: {{ device.ram }}<br />
 Brand: {{ device.brand }}<br />
 Model: {{ device.model }}<br />
-Purchase Information: <a href="/list/Purchase/{{device.purchase_ID.id}}/"> {{ device.purchase_ID }}</a><br />
+Purchase Information: <a href={% url asset_inventory.views.view_item 'Purchase' device.purchase_ID_id %}> {{ device.purchase_ID }}</a><br />
 Status: {{ device.Status_ID }}<br />
 Proc: {{ device.proc }}<br />
 Is x64? {{ device.x64 }}<br />
 Is Dual Screen? {{ device.dualscreen }}<br /><br />
 
-<a href='/Device/edit/{{ device.id }}/'>Edit</a><br /><br />
-
+<a href={% url asset_inventory.views.add_edit_item 'Device' 'edit' device.id %}>Edit</a><br /><br />
 {% endblock %}

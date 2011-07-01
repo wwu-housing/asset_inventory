@@ -1,5 +1,5 @@
 from django.contrib import admin
-from ResTekInventory.models import Location, Job, Person, Status, Esign, Esign_Sys, Purchase, Device 
+from asset_inventory.models import Location, Job, Person, Status, Esign, Esign_Sys, Purchase, Device 
 
 admin.site.register(Device)
 admin.site.register(Location)
