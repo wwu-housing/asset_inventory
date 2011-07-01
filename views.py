@@ -5,9 +5,9 @@ from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
-from asset_inventory.models import (Location, Job, Person, Status, Esign,
+from models import (Location, Job, Person, Status, Esign,
                                     Purchase, Device, Esign_Sys)
-from asset_inventory.forms import (JobForm, LocationForm, PersonForm,
+from forms import (JobForm, LocationForm, PersonForm,
                                    PurchaseForm, StatusForm, EsignForm,
                                    Esign_SysForm, DeviceForm)
 
