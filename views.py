@@ -290,8 +290,8 @@ def add_device_esign(request, esign_id_number):
         Esign_Sys_Occurance = Esign_Sys_Form.save(commit=False)
         Esign_Sys_Occurance.esign_ID = esign
         Esign_Sys_Occurance.save()
-        return HttpResponseRedirect('asset_inventory_add_device_esign',
-                                    args=[esign_id_number])
+        return HttpResponseRedirect(reverse('asset_inventory_list_model',
+                                    args=['Esign']))
 
     return render_to_response(templateFile,
                               {'form': Esign_Sys_Form, 'esign': esign},
