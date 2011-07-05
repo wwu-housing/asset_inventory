@@ -1,9 +1,12 @@
 import datetime
 
+from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+
+from wwu_housing.decorators import has_perm
 
 from models import (Location, Job, Person, Status, Esign,
                                     Purchase, Device, Esign_Sys)
@@ -28,12 +31,16 @@ def _checkModel(model_name):
             return True
     return False
 
+@login_required
+@has_perm("asset_inventory.device.can_add_device")
 def homepage(request):
     """Landing Page for inventory site"""
     list_Models = _listModel()
     return render_to_response('asset_inventory/index.html',
                               {'model_list': list_Models})
 
+@login_required
+@has_perm("asset_inventory.device.can_add_device")
 def list_model(request, model_name):
     """Listings Page for inventory site"""
     directory = "asset_inventory/list_Pages/"
@@ -64,6 +71,8 @@ def list_model(request, model_name):
         render_to_response('index.html')
     return render_to_response(templateFile, locals())
 
+@login_required
+@has_perm("asset_inventory.device.can_add_device")
 def view_item(request, model_name, model_id):
     """View Page for individual items in the inventory"""
     directory = "asset_inventory/list_Pages/Individual_Items/"
@@ -89,6 +98,8 @@ def view_item(request, model_name, model_id):
         render_to_response('asset_inventory/index.html')
     return render_to_response(templateFile, locals())
 
+@login_required
+@has_perm("asset_inventory.device.can_add_device")
 def add_edit_item(request, model_name, add_edit, edit_id):
     """Add/Edit page for the inventory"""
     if(add_edit == "add"):
@@ -262,6 +273,8 @@ def add_edit_item(request, model_name, add_edit, edit_id):
     else:
         render_to_response(reverse('homepage'))
 
+@login_required
+@has_perm("asset_inventory.device.can_add_device")
 def add_device_esign(request, esign_id_number):
     """Add a Esign instance"""
     directory = "asset_inventory/add_edit_Pages/"
@@ -284,6 +297,8 @@ def add_device_esign(request, esign_id_number):
                               {'form': Esign_Sys_Form, 'esign': esign},
                               context_instance=RequestContext(request))
 
+@login_required
+@has_perm("asset_inventory.device.can_add_device")
 def usecasepages(request, use_case_type):
     """Use case pages, inventory printout page, aged inventory list"""
     if(use_case_type == 'aged'):
@@ -297,4 +312,3 @@ def usecasepages(request, use_case_type):
             count = count + 1
         return render_to_response('asset_inventory/use_case_pages/printableInventory.html',
                                   locals())
-
