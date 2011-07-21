@@ -13,7 +13,6 @@ class Location(models.Model):
         (u'MA', u'Mathes'),
         (u'VC', u'Viking Commons'),
         (u'VU', u'Viking Union'),
-        (u'VA', u'Viking Addition'),
         (u'BT', u'Buchannan Towers'),
         (u'BW', u'Birnam Wood'),
         (u'CM', u'Commisary'),
@@ -32,15 +31,13 @@ class Location(models.Model):
     )
     Location_Options = (
         (u'C', u'Computer Lab'),
-        (u'D', 'Desk'),
-        (u'O', 'Office'),
+        (u'A', 'Administrative'),
     )
     
     building = models.CharField(max_length=3, choices=Building_Choices)
     location_type = models.CharField(max_length=1, choices=Location_Options)
     room = models.CharField(max_length=10)
-    station_location = models.CharField(max_length=30)
-    lock_combination = models.CharField(max_length=20)
+    station_location = models.CharField(max_length=30, blank=True)
     lock_type = models.CharField(max_length=50)
     is_deleted = models.BooleanField()
 
@@ -128,7 +125,7 @@ class Device(models.Model):
     hostname = models.CharField(max_length=255)
     serial = models.CharField(max_length=255)
     state_id = models.CharField(max_length=255)
-    memory = models.CharField(max_length=100)
+    teamviewer_ID = models.CharField(max_length=100, verbose_name='Teamviewer ID')
     ram = models.CharField(max_length=100)
     dualscreen = models.BooleanField()
     brand = models.CharField(max_length=200)
