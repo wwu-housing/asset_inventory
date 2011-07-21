@@ -12,6 +12,9 @@ class JobForm(ModelForm):
             ('ResTek', 'ResTek'),
             ('Assignments', 'Assignments'),
             ('Director', 'Director'),
+            ('Dining', 'Dining'),
+            ('General', 'General'),
+            ('Western Card', 'Western Card'),
     )
     
     unit = forms.ChoiceField(choices=UNIT_CHOICES)
