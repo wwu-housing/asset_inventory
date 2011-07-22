@@ -4,14 +4,20 @@
 {% block subcontent %}
 <h2 id='header'>People</h2>
 <a href={% url asset_inventory.views.add_edit_item 'Person' 'add' 'new' %}>Add</a>
-<ul id='list'>
+<table border="2" width="500px">
+    <tr>
+        <th><b>Department</b></th>
+        <th><b>Job Title</b></th>
+        <th><b>Person</b></th>
+        <th><b>Edit</b></th>
+    </tr>
 {% for item in people %}
-<li><div>
-<b>{{ item.name }}</b> &nbsp
-<a href={% url asset_inventory.views.add_edit_item 'Person' 'edit' item.id %}>Edit</a>
-<br />
-&nbsp&nbsp {{ item.job_info }}<br /><br />
-</div></li>
+    <tr>
+        <td>{{ item.job_info.unit }}</td>
+        <td>{{ item.job_info.title }}</td>
+        <td>{{ item.first_name }} {{item.last_name }}</td>
+        <td><a href={% url asset_inventory.views.add_edit_item 'Person' 'edit' item.id %}>Edit</a></td>
+    </tr>
 {% endfor %}
-</ul>
+</table>
 {% endblock %}
