@@ -5,12 +5,19 @@
 {% block subcontent %}
 <h2 id='header'>Job Titles</h2>
 <a href={% url asset_inventory.views.add_edit_item 'Job' 'add' 'new' %}>Add</a>
-<ul id='list'>
+<table border="2" width="500px">
+    <tr>
+        <th><b>Department</b></th>
+        <th><b>Job Title</b></th>
+        <th><b>Edit</b></th>
+    </tr>
 {% for item in jobs %}
-<li><div>
-<b>{{ item }}</b> &nbsp <a href={% url asset_inventory.views.add_edit_item 'Job' 'add' item.id %} />Edit</a>
-<br />
-</div></li>
+    <tr>
+        <td>{{ item.unit }}</td>
+        <td>{{ item.title }} </td>
+        <td><a href={% url asset_inventory.views.add_edit_item 'Job' 'add' item.id %} />Edit</a></td>
+    </tr>
 {% endfor %}
+</table>
 </ul>
 {% endblock %}
