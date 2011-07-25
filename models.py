@@ -5,33 +5,34 @@ from django.db import models
 
 class Location(models.Model):
     Building_Choices = (
-        (u'EH', u'Edens South'),
-        (u'EN', u'Edens North'),
-        (u'EA', u'Edens Administration'),
-        (u'HG', u'Higginson'),
-        (u'NA', u'Nash'),
-        (u'MA', u'Mathes'),
-        (u'VC', u'Viking Commons'),
-        (u'VU', u'Viking Union'),
-        (u'BT', u'Buchannan Towers'),
         (u'BW', u'Birnam Wood'),
+        (u'BT', u'Buchannan Towers'),
         (u'CM', u'Commisary'),
+        (u'EA', u'Edens Administration'),
+        (u'EN', u'Edens North'),
+        (u'EH', u'Edens South'),
         (u'FA', u'Fairhaven College'),
         (u'FC', u'Fairhaven Commons'),
         (u'FX', u'Fairhaven Stacks'),
-        (u'RC', u'Ridge Commons'),
         (u'HI', u'Highland'),
+        (u'HG', u'Higginson'),
+        (u'MA', u'Mathes'),
+        (u'NA', u'Nash'),
+        (u'PP', u'Physical Plant'),
         (u'RA', u'Ridge Alpha'),
         (u'RB', u'Ridge Beta'),
-        (u'RG', u'Ridge Gamma'),
+        (u'RC', u'Ridge Commons'),
         (u'RD', u'Ridge Delta'),
-        (u'RS', u'Ridge Sigma'),
-        (u'RO', u'Ridge Omega'),
+        (u'RG', u'Ridge Gamma'),
         (u'RK', u'Ridge Kappa'),
+        (u'RO', u'Ridge Omega'),
+        (u'RS', u'Ridge Sigma'),
+        (u'VC', u'Viking Commons'),
+        (u'VU', u'Viking Union'),
     )
     Location_Options = (
+        (u'A', u'Administrative'),
         (u'C', u'Computer Lab'),
-        (u'A', 'Administrative'),
     )
     
     building = models.CharField(max_length=3, choices=Building_Choices)
